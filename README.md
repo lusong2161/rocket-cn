@@ -1,1 +1,1 @@
-# Rocket.Chat 中文翻译项目\n\n本项目包含了 Rocket.Chat 的中文翻译文件和相关工具。\n\n## 主要内容\n\n- 标准化的中文翻译文件\n- 翻译验证工具\n- 翻译贡献指南
+# 项目说明\n\n## 功能特点\n\n- 标准化的中文翻译\n- 翻译验证工具\n- 翻译贡献指南\n\n## 目录结构\n\n- packages/i18n/src/locales/: 翻译文件\n- packages/i18n/src/locales/verify_json.py: JSON验证工具\n- packages/i18n/src/locales/translation_verify.html: 翻译验证界面\n- packages/i18n/TRANSLATION_GUIDE.zh-TW.md: 翻译贡献指南
