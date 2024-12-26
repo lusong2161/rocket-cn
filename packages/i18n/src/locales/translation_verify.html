@@ -16,9 +16,22 @@
     <script>
         async function loadTranslations() {
             try {
-                const response = await fetch('zh-TW.i18n.json');
+                const url = new URL('zh-TW.i18n.json', window.location.origin);
+                const response = await fetch(url.toString(), {
+                    method: 'GET',
+                    credentials: 'omit',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
                 const data = await response.json();
                 const content = document.getElementById('content');
+                content.innerHTML = ''; // Clear existing content
                 
                 Object.entries(data).forEach(([key, value]) => {
                     const div = document.createElement('div');
@@ -30,11 +43,13 @@
                     content.appendChild(div);
                 });
             } catch (error) {
-                console.error('Error loading translations:', error);
+                console.error('加载翻译文件时出错:', error);
+                const content = document.getElementById('content');
+                content.innerHTML = `<div class="error">加载翻译文件时出错: ${error.message}</div>`;
             }
         }
         
-        loadTranslations();
+        document.addEventListener('DOMContentLoaded', loadTranslations);
     </script>
 </body>
 </html>
