@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Translation Verification Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .entry { margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; }
+        .key { font-weight: bold; }
+        .value { color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Translation Verification Tool</h1>
+    <div id="content"></div>
+    <script>
+        async function loadTranslations() {
+            try {
+                const response = await fetch('zh-TW.i18n.json');
+                const data = await response.json();
+                const content = document.getElementById('content');
+                
+                Object.entries(data).forEach(([key, value]) => {
+                    const div = document.createElement('div');
+                    div.className = 'entry';
+                    div.innerHTML = `
+                        <div class="key">${key}</div>
+                        <div class="value">${value}</div>
+                    `;
+                    content.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Error loading translations:', error);
+            }
+        }
+        
+        loadTranslations();
+    </script>
+</body>
+</html>
