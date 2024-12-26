@@ -1,1 +1,1 @@
-# Rocket.Chat Chinese Translations
+# Rocket.Chat 中文翻译项目\n\n本项目包含了 Rocket.Chat 的中文翻译文件和相关工具。\n\n## 主要内容\n\n- 标准化的中文翻译文件\n- 翻译验证工具\n- 翻译贡献指南
